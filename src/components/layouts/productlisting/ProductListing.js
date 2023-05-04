@@ -7,9 +7,9 @@ import { useContext } from 'react'
 import { BookContext } from '../../../contexts/BookContext'
 
 const ProductListing = () => {
-    const { books, setBooks } = useContext(BookContext)
+    const { books } = useContext(BookContext)
 
-    
+
 
     // random books
     const booksCopy = [...books]
@@ -21,14 +21,13 @@ const ProductListing = () => {
         booksCopy.splice(index, 1)
     }
 
-    console.log(books)
 
     return (
         <div className='product-listing-container'>
             <div className='container'>
                 <h2>Here are some <span className='text-primary'>books</span> that you might like</h2>
                 <div className='listing-container'>
-                    {results.map(book => <div key={book.id} className='grid-item'>
+                    {results.map(book => book && <div key={book.id} className='grid-item'>
                         <ProductListingCard book={book} />
                     </div>)}
                 </div>

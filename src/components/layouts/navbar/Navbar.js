@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 
 import { NavLink, Link } from 'react-router-dom'
 
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+
 
 import './navbar.style.css'
+import CartIcon from '../carticon/CartIcon'
 
 
 const Navbar = ({ darkTheme, darkText }) => {
@@ -41,7 +42,7 @@ const Navbar = ({ darkTheme, darkText }) => {
             <NavLink to='/' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Home</NavLink>
             <NavLink to='/books' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Books</NavLink>
             <Link to={'/'} onClick={handleLogout} className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Logout</Link>
-            <NavLink to='/cart' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'} flex align-center text-xl`}><AiOutlineShoppingCart /></NavLink>
+            <CartIcon cartCount={1} darkText={darkText}/>
         </nav>
     )
 

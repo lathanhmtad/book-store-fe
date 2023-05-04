@@ -1,6 +1,5 @@
 import './detailssection.style.css'
 
-import BookDetailImg from '../../../img/1984.webp'
 import { useParams } from 'react-router-dom'
 import { useContext, useState, useEffect, useRef } from 'react'
 
@@ -45,7 +44,7 @@ const DetailsSection = () => {
         return <section className='details-section-error'>Không tìm thấy sản phẩm</section>
     }
 
-    const { description, price, languages, name, author, images, length } = book
+    const { description, price, languages, name, author, images, length, publisher } = book
 
 
     function plusSlides(n) {
@@ -120,6 +119,8 @@ const DetailsSection = () => {
                         <p className='book-description'>
                             {description}
                         </p>
+                        <p><b>Category:</b> Sách võ</p>
+                        <p><b>Publisher:</b> Kim đồng</p>
                         <p><b>Language:</b> {languages}</p>
                         <p><b>Book Length: </b>{length} pages</p>
                         <h3>{price} VNĐ</h3>

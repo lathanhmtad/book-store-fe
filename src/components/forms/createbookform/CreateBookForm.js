@@ -53,6 +53,7 @@ const CreateBookForm = (props) => {
         const data = new FormData()
         data.append('name', formData.name)
         data.append('author', formData.author)
+        data.append('publisher', formData.author)
         data.append('category', formData.category)
         data.append('price', formData.price)
         data.append('languages', formData.languages)
@@ -126,6 +127,17 @@ const CreateBookForm = (props) => {
         {
             formGroupClass: 'formbold-mb-3',
             labelClass: 'formbold-form-label',
+            label: 'Nhà xuất bản',
+            id: 'publisher',
+            name: 'publisher',
+            type: 'text',
+            className: 'formbold-form-input',
+            placeholder: 'Enter publisher',
+            required: true
+        },
+        {
+            formGroupClass: 'formbold-mb-3',
+            labelClass: 'formbold-form-label',
             label: 'Price',
             id: 'price',
             name: 'price',
@@ -155,6 +167,18 @@ const CreateBookForm = (props) => {
             type: 'number',
             className: 'formbold-form-input',
             placeholder: 'Enter page number',
+            required: true,
+            min: 0
+        },
+        {
+            formGroupClass: 'formbold-mb-3',
+            labelClass: 'formbold-form-label',
+            label: 'Amount',
+            id: 'amount',
+            name: 'amount',
+            type: 'number',
+            className: 'formbold-form-input',
+            placeholder: 'Enter amount',
             required: true,
             min: 0
         },

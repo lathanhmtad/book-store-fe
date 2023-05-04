@@ -25,6 +25,7 @@
     padding-left: 24px;
     transition: 0.1s ease-in;
     cursor: pointer;
+    position: relative;
 }
 
 .nav-link.active {
