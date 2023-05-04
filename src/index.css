@@ -87,3 +87,8 @@ span {
 .overflow-hidden {
     overflow: hidden;
 }
+
+button {
+    outline: none;
+    cursor: pointer;
+}

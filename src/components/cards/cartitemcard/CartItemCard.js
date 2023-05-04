@@ -2,21 +2,24 @@ import ProductImg from '../../../img/mac-biec.jpg'
 
 import './cartitemcard.style.css';
 
-const CartItemCard = ({ bookData }) => {
+const CartItemCard = ({ book }) => {
+
+    
 
     return (
+        
         <section className="cart-item">
             <div className="cart-item-img-container">
                 <img src={ProductImg} alt="cart-item-img" className="cart-item-img" />
             </div>
             <div className="cart-item-content-container">
                 <div>
-                    <h2>Mắt biết</h2>
-                    <h6>Nguyễn Nhật Ánh</h6>
+                    <h2>{book.name}</h2>
+                    <h6>{book.author}</h6>
                 </div>
                 <p>Loại sách</p>
                 <div>
-                    Giá bán
+                    {book.price}
                 </div>
                 <div className='quantity'>
                     Số lượng    

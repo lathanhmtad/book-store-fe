@@ -1,7 +1,14 @@
-import './productlistingcard.style.css'
+import { useContext } from 'react'
+
 import { Link } from 'react-router-dom'
+import './productlistingcard.style.css'
+
+import {CartContext} from '../../../contexts/CartContext'
+
 
 const ProductListingCard = ({book}) => {
+
+    const {cart, addToCart} = useContext(CartContext)
     
     const {id, name, author, price, images} = book
 
@@ -17,7 +24,7 @@ const ProductListingCard = ({book}) => {
             </div>
             <div className='card-btn-container'>
                 <Link to={`/book-details/${id}`} className='product-listing-button button-green'>Details</Link>
-                <Link to={`/cart`} className='product-listing-button'>Add To Cart</Link>
+                <button onClick={() => addToCart(book, id)} className='product-listing-button'>Add To Cart</button>
             </div>
         </div>
     )
