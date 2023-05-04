@@ -26,6 +26,7 @@
     transition: 0.1s ease-in;
     cursor: pointer;
     position: relative;
+    box-sizing: border-box;
 }
 
 .nav-link.active {

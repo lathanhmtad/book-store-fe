@@ -1,15 +1,16 @@
+import { useContext } from 'react'
+
+
 import './productlisting.style.css'
 
 import ProductListingCard from '../../cards/productlistingcard/ProductListingCard'
 
-import { useContext } from 'react'
-
+// import context
 import { BookContext } from '../../../contexts/BookContext'
+
 
 const ProductListing = () => {
     const { books } = useContext(BookContext)
-
-
 
     // random books
     const booksCopy = [...books]

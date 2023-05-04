@@ -1,19 +1,31 @@
-import { useContext } from 'react'
-
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+
 import './productlistingcard.style.css'
+
+import Popup from '../../popup/Popup'
 
 import {CartContext} from '../../../contexts/CartContext'
 
 
 const ProductListingCard = ({book}) => {
 
-    const {cart, addToCart} = useContext(CartContext)
+    // popup state
+    const [popup, setPopup] = useState(false)
+
+    const {addToCart} = useContext(CartContext)
     
     const {id, name, author, price, images} = book
 
+
+    const handleClick = () => {
+        addToCart(book, id)
+        setPopup(true)
+    }
+
     return (
         <div className='product-listing-card'>
+            {popup && <Popup setPopup={setPopup}/>}
             <div className='product-listing-img-container'>
                 <img src={`data:${images[0].type};base64, ${images[0].data}`} alt={`${images[0].name}`} className='product-listing-image' />
             </div>
@@ -24,7 +36,7 @@ const ProductListingCard = ({book}) => {
             </div>
             <div className='card-btn-container'>
                 <Link to={`/book-details/${id}`} className='product-listing-button button-green'>Details</Link>
-                <button onClick={() => addToCart(book, id)} className='product-listing-button'>Add To Cart</button>
+                <button onClick={handleClick} className='product-listing-button'>Add To Cart</button>
             </div>
         </div>
     )

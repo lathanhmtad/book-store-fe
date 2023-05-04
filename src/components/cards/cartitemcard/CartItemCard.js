@@ -1,16 +1,19 @@
-import ProductImg from '../../../img/mac-biec.jpg'
+import { useContext } from 'react';
+
 
 import './cartitemcard.style.css';
 
-const CartItemCard = ({ book }) => {
+import {CartContext} from '../../../contexts/CartContext'
 
-    
+
+const CartItemCard = ({ book }) => {
+    const {removeFromCart} = useContext(CartContext)
 
     return (
         
         <section className="cart-item">
             <div className="cart-item-img-container">
-                <img src={ProductImg} alt="cart-item-img" className="cart-item-img" />
+                <img src={`data:${book.images[0].type};base64, ${book.images[0].data}`} alt={`${book.images[0].name}`} className="cart-item-img" />
             </div>
             <div className="cart-item-content-container">
                 <div>
@@ -19,13 +22,13 @@ const CartItemCard = ({ book }) => {
                 </div>
                 <p>Loại sách</p>
                 <div>
-                    {book.price}
+                    ₫{book.price} 
                 </div>
                 <div className='quantity'>
                     Số lượng    
                 </div>
                 <div>Tổng cộng</div>
-                <button className='delete_btn'>Remove from Cart</button>
+                <button onClick={() => removeFromCart(book.id)} className='delete_btn'>Remove</button>
             </div>
         </section>
     )

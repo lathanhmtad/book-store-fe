@@ -35,14 +35,14 @@ const Navbar = ({ darkTheme, darkText }) => {
         if (customerInfo) {
             setIsLoggedIn(true);
         }
-    }, []) 
+    }, [])
 
     const showLoggedInNav = (
         <nav className='nav-links-container flex'>
             <NavLink to='/' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Home</NavLink>
             <NavLink to='/books' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Books</NavLink>
             <Link to={'/'} onClick={handleLogout} className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Logout</Link>
-            <CartIcon cartCount={1} darkText={darkText}/>
+            <CartIcon darkText={darkText} />
         </nav>
     )
 
@@ -60,7 +60,6 @@ const Navbar = ({ darkTheme, darkText }) => {
         <section className={`${(darkTheme || isActive) ? 'background-dark' : 'background-transparent'} navbar-container`}>
             <div className='container flex justify-between align-center'>
                 <Link to={'/'} className='logo text-primary'>Book<span className='text-white'>Stores</span></Link>
-
                 {isLoggedIn ? showLoggedInNav : showLoggedOutNav}
             </div>
         </section>
