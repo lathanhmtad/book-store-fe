@@ -14,6 +14,8 @@ const BookProvider = ({ children }) => {
         setBooks([...books, newBook])
     }
 
+    
+
     // fetch books
     useEffect(() => {
         BooksServices.getAll()
@@ -25,8 +27,9 @@ const BookProvider = ({ children }) => {
             .catch(err => {
                 console.log(err)
             })
-    }, []);
-
+        }, []);
+        
+       
 
     return <BookContext.Provider value={{ books, addBook }}>
         {children}

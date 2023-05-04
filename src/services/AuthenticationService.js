@@ -16,10 +16,6 @@ class AuthenticationService {
     login(data) {
         return axios.post(API_BASE_URL + '/login', data)
     }
-
-    createBook(data) {
-        return axios.post(API_BASE_URL + '/books', data)
-    }
 }
 
 export default new AuthenticationService()
