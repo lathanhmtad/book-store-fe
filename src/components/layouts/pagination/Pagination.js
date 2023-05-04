@@ -1,8 +1,8 @@
 import './pagination.style.css'
 
-const Pagination = ({ onPageChange, filters }) => {
+const Pagination = ({ onPageChange, pagination }) => {
 
-    const { page, size, totalRows } = filters
+    const { page, size, totalRows } = pagination
 
     const totalPages = Math.ceil(totalRows / size);
 

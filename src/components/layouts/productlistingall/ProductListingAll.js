@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 // import css
 import './productlistingall.style.css'
@@ -10,13 +10,18 @@ import Pagination from '../../layouts/pagination/Pagination'
 // import contexts
 import { BookContext } from '../../../contexts/BookContext'
 
+import BooksServices from '../../../services/BooksServices';
 
 
 const ProductListingAll = () => {
 
-    const { books, filters, setFilters } = useContext(BookContext)
+    const { books, setBooks, filters, setFilters } = useContext(BookContext)
 
-    console.log(filters)
+    const [pagination, setPagination] = useState({
+        page: 1,
+        size: 5,
+        totalRows: 1
+    })
 
     const handlePageChange = (newPage) => {
         setFilters({
@@ -24,6 +29,21 @@ const ProductListingAll = () => {
             page: newPage
         })
     }
+
+    // fetch books
+    useEffect(() => {
+        BooksServices.getPage(filters.page, filters.size)
+            .then(response => {
+                const books = response.data.data
+                const pagination = response.data.pagination
+                
+                setBooks(books)
+                setPagination(pagination)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [filters])
 
     return (
         <section className='product-listing-all-container grid wide'>
@@ -33,7 +53,7 @@ const ProductListingAll = () => {
                 </div>)}
 
                 <Pagination 
-                    filters={filters}
+                    pagination={pagination}
                     onPageChange={handlePageChange}
                 />
             </div>
