@@ -16,6 +16,7 @@ const ProductListingAll = () => {
 
     const { books, filters, setFilters } = useContext(BookContext)
 
+    console.log(filters)
 
     const handlePageChange = (newPage) => {
         setFilters({
@@ -32,7 +33,7 @@ const ProductListingAll = () => {
                 </div>)}
 
                 <Pagination 
-                    pagination={filters}
+                    filters={filters}
                     onPageChange={handlePageChange}
                 />
             </div>
