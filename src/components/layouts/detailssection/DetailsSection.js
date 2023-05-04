@@ -25,14 +25,13 @@ const DetailsSection = () => {
     })
 
     useEffect(() => {
-        if(!slideRef.current || !width) return;
+        if (!slideRef.current || !width) return;
         let numOfThumb = Math.round(slideRef.current.offsetWidth / width)
         slideRef.current.scrollLeft = slideIndex > numOfThumb ? (slideIndex - 1) * width : 0
     }, [width, slideIndex])
 
     // get the book id from the url
     const { id } = useParams()
-
 
     const { books } = useContext(BookContext)
 
@@ -43,10 +42,10 @@ const DetailsSection = () => {
 
     // if book is not found
     if (!book) {
-        return <section className='h-screen flex justify-center items-center'>Loading...</section>
+        return <section className='details-section-error'>Không tìm thấy sản phẩm</section>
     }
 
-    const { description, price, languages, name, author, imageUrls, length } = book
+    const { description, price, languages, name, author, images, length } = book
 
 
     function plusSlides(n) {
@@ -55,11 +54,11 @@ const DetailsSection = () => {
     }
 
     function slideShow(n) {
-        if (n > imageUrls.length) {
+        if (n > images.length) {
             setSlideIndex(1)
         }
         if (n < 1) {
-            setSlideIndex(imageUrls.length)
+            setSlideIndex(images.length)
         }
     }
 
@@ -84,7 +83,7 @@ const DetailsSection = () => {
         }
     }
 
-    
+
 
     return (
         <section className='detail-section-container'>
@@ -92,10 +91,10 @@ const DetailsSection = () => {
                 <div className='book-detail-wrapper-container'>
                     <div className='book-img-container'>
                         {
-                            imageUrls.map((imageUrl, index) => (
+                            images.map((image, index) => (
                                 <div key={index} className='mySlides' style={{ display: (index + 1) === slideIndex ? 'block' : 'none' }}>
-                                    <div className='numbertext'>{index + 1} / {imageUrls.length}</div>
-                                    <img src={imageUrl} alt='image' />
+                                    <div className='numbertext'>{index + 1} / {images.length}</div>
+                                    <img src={`data:${image.type};base64, ${image.data}`} alt={`${images.name}`} className='product-listing-image' />
                                 </div>
 
                             ))
@@ -105,9 +104,9 @@ const DetailsSection = () => {
 
                         <div className='slider-img' draggable={true} ref={slideRef} onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
                             {
-                                imageUrls.map((imageUrl, index) => (
+                                images.map((image, index) => (
                                     <div onClick={() => setSlideIndex(index + 1)} key={index} className={`slider-box ${index + 1 === slideIndex && 'active'}`}>
-                                        <img src={imageUrl} alt='image' />
+                                        <img src={`data:${image.type};base64, ${image.data}`} alt={`${images.name}`} className='product-listing-image' />
                                     </div>
 
                                 ))

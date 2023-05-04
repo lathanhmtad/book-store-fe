@@ -126,3 +126,10 @@
     padding-top: 1rem;
     color: var(--primary-color-bright);
 }
+
+.details-section-error {
+    padding: 20% 0;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+}

@@ -13,7 +13,6 @@ const ProductListingAll = () => {
 
     const { books } = useContext(BookContext)
 
-
     return (
         <section className='product-listing-all-container'>
             <div className='container'>

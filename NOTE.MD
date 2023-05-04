@@ -69,18 +69,74 @@
             "price": 2090,
             "description": "Mô tả sách 1",
             "images": 
-                    [
-                        {
-                            id
-                        
-                        
-                        },
-                        {},
-                        {}
-                    ]
-        },
+                [
+                    {
+                        id: 1,
+                        name: 'Hình ảnh 1'
+                        type: image/jpeg,
+                        data: '.........................'
+                    },
+                    {
+                        id: 2,
+                        name: 'Hình ảnh 2'
+                        type: image/jpg,
+                        data: '.........................'
+                    }
+                ]
+        }
     
+    - Trả về mảng book 
+    [
+        {
+            "id": 1,
+            "name": "Sách 1",
+            "author": "Tác giả 1",
+            "languages": "Ngôn ngữ 1",
+            "length": 454,
+            "price": 2090,
+            "description": "Mô tả sách 1",
+            "images": 
+                [
+                    {
+                        id: 1,
+                        name: 'Hình ảnh 1'
+                        type: image/jpeg,
+                        data: '.........................'
+                    },
+                    {
+                        id: 2,
+                        name: 'Hình ảnh 2'
+                        type: image/jpg,
+                        data: '.........................'
+                    }
+                ]
+        }
 
+        {
+            "id": 2,
+            "name": "Sách 2",
+            "author": "Tác giả 2",
+            "languages": "Ngôn ngữ 2",
+            "length": 454,
+            "price": 2090,
+            "description": "Mô tả sách 2",
+            "images": 
+                [
+                    {
+                        id: 1,
+                        name: 'Hình ảnh 1'
+                        type: image/jpeg,
+                        data: '.........................'
+                    },
+                    {
+                        id: 2,
+                        name: 'Hình ảnh 2'
+                        type: image/jpg,
+                        data: '.........................'
+                    }
+                ]
+        }
+    ]
 
 	
 -JSON (dạng trả về)
