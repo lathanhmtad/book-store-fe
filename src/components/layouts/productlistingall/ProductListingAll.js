@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 // import css
 import './productlistingall.style.css'
@@ -14,7 +14,15 @@ import { BookContext } from '../../../contexts/BookContext'
 
 const ProductListingAll = () => {
 
-    const { books } = useContext(BookContext)
+    const { books, filters, setFilters } = useContext(BookContext)
+
+
+    const handlePageChange = (newPage) => {
+        setFilters({
+            ...filters,
+            page: newPage
+        })
+    }
 
     return (
         <section className='product-listing-all-container grid wide'>
@@ -23,7 +31,10 @@ const ProductListingAll = () => {
                     <ProductListingCard book={book} />
                 </div>)}
 
-                <Pagination booksPerPage={8}/>
+                <Pagination 
+                    pagination={filters}
+                    onPageChange={handlePageChange}
+                />
             </div>
         </section>
     )

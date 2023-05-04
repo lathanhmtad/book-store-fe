@@ -8,7 +8,10 @@ export const BookContext = createContext()
 
 const BookProvider = ({ children }) => {
 
-    const [totalBooks, setTotalBooks] = useState(0)
+    const [filters, setFilters] = useState({
+        page: 1,
+        size: 5
+    })
 
     const [books, setBooks] = useState([])
 
@@ -19,23 +22,19 @@ const BookProvider = ({ children }) => {
 
     // fetch books
     useEffect(() => {
-        BooksServices.getAll()
+        BooksServices.getPage(filters.page, filters.size)
             .then(response => {
-                const books = response.data
+                const books = response.data.data
                 setBooks(books)
             })
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [filters])
 
 
-    useEffect(() => {
-        setTotalBooks(books.length)
-    }, [books])
 
-
-    return <BookContext.Provider value={{ books, addBook, totalBooks }}>
+    return <BookContext.Provider value={{ books, addBook, filters, setFilters }}>
         {children}
     </BookContext.Provider>
 }

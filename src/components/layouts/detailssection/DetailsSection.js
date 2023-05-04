@@ -46,8 +46,6 @@ const DetailsSection = () => {
 
     const { description, price, languages, name, author, images, length, publisher } = book
 
-    console.log(book)
-
     function plusSlides(n) {
         setSlideIndex(prev => prev + n)
         slideShow(slideIndex + n)
@@ -84,10 +82,10 @@ const DetailsSection = () => {
     }
 
     return (
-        <section className='detail-section-container'>
-            <div className='container'>
-                <div className='book-detail-wrapper-container'>
-                    <div className='book-img-container'>
+        <section className='detail-section-container '>
+            <div className='grid wide'>
+                <div className='book-detail-wrapper-container row'>
+                    <div className='col l-6 m-12 c-12 book-img-container'>
                         {
                             images.map((image, index) => (
                                 <div key={index} className='mySlides' style={{ display: (index + 1) === slideIndex ? 'block' : 'none' }}>
@@ -112,7 +110,7 @@ const DetailsSection = () => {
                         </div>
                     </div>
 
-                    <div className='book-detail-container'>
+                    <div className='col l-6 m-12 c-12 book-detail-container'>
                         <h2>{name}</h2>
                         <p className='text-primary'>{author}</p>
                         <p className='book-description'>

@@ -4,12 +4,6 @@
 }
 
 .book-detail-wrapper-container {
-    background-color: #fff;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 30px;
-    width: 80%;
-    margin: 0 auto;
 }
 
 .book-img-container {
@@ -17,9 +11,6 @@
     position: relative;
 }
 
-.book-detail-container {
-    margin-left: 20%;
-}
 
 .mySlides {
     position: relative;
