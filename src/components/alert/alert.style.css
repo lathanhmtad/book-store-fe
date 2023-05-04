@@ -1,0 +1,29 @@
+.alert {
+    padding: 16px;
+    color: white;
+    margin-top: 4px;
+    border-radius: 6px;
+}
+
+.alert.error {
+    background-color: #f44336;
+}
+
+.alert.success {
+    background-color: rgb(95, 218, 95);
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}

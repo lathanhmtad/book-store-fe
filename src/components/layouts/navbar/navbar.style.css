@@ -1,0 +1,56 @@
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 1.2rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: Chivo Mono;
+}
+
+.logo span {
+    font-family: Chivo Mono;
+}
+
+.nav-link,
+.nav-link-dark {
+    color: #fff;
+    font-size: 1.2rem;
+    padding-left: 24px;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link-dark {
+    color: #333;
+}
+
+.nav-link-dark.active {
+    color: var(--primary-color);
+}
+
+.nav-link-dark:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.background-dark {
+    background-color: #333;
+}
+
+.background-transparent {
+    background-color: transparent;
+}

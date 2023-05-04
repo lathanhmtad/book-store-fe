@@ -1,0 +1,128 @@
+.detail-section-container {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.book-detail-wrapper-container {
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 30px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.book-img-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.book-detail-container {
+    margin-left: 20%;
+}
+
+.mySlides {
+    position: relative;
+    height: 330px;
+    width: 100%;
+}
+
+.mySlides .numbertext {
+    color: black;
+    font-size: 16px;
+}
+
+.mySlides img {
+    width: 100%;
+    display: inline-block;
+    object-fit: contain;
+}
+
+
+.book-img-container .prev,
+.book-img-container .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.book-img-container .slider-img {
+    width: 100%;
+    height: 100px;
+    overflow-x: scroll;
+    display: flex;
+    user-select: none;
+}
+
+.book-img-container .slider-img::-webkit-scrollbar {
+    display: none;
+}
+
+.book-img-container .slider-img .slider-box {
+    width: 100px;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 2px;
+    opacity: 0.6;
+    margin: 0 5px;
+}
+
+.book-img-container .slider-img .slider-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: inline-block;
+}
+
+.book-img-container .slider-img .slider-box:hover {
+    border: 2px solid teal;
+    opacity: 1;
+}
+
+.book-img-container .slider-img .slider-box.active {
+    border: 2px solid crimson;
+    opacity: 1;
+}
+
+
+.book-img-container .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.book-img-container .prev:hover,
+.book-img-container .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+.book-img-container img {
+    height: 300px;
+}
+
+.book-detail-container h2 {
+    font-size: 2rem;
+}
+
+.book-detail-container p {
+    padding: 1rem 0;
+}
+
+.book-description {
+    line-height: 1.7rem;
+}
+
+.book-detail-container h3 {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    color: var(--primary-color-bright);
+}

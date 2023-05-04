@@ -1,0 +1,15 @@
+.product-listing-all-container {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 3rem;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+}
