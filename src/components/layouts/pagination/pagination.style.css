@@ -1,0 +1,36 @@
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-item {
+    margin-right: 0.5rem;
+}
+
+.page-item button {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    transition: linear 0.2s;
+}
+
+.page-item button:hover {
+    background-color: #4caf50;
+}
+
+.page-item button.active-page {
+    background-color: #4caf50;
+    color: white;
+    border-color: #4caf50;
+}

@@ -16,6 +16,18 @@ const CreateBookForm = (props) => {
 
     const { addBook } = useContext(BookContext)
 
+    const [formData, setFormData] = useState({
+        name: "",
+        author: "",
+        publisher: "",
+        amount: "",
+        category: "",
+        price: '',
+        languages: "",
+        length: '',
+        images: [],
+        description: "",
+    });
 
     useEffect(() => {
         CategoryService.getAll()
@@ -34,18 +46,6 @@ const CreateBookForm = (props) => {
     })
     const [alert, setAlert] = useState(false)
 
-    const [formData, setFormData] = useState({
-        name: "",
-        author: "",
-        publisher: "",
-        amount: "",
-        category: "",
-        price: '',
-        languages: "",
-        length: '',
-        images: [],
-        description: "",
-    });
 
 
     const handleSubmit = (e) => {
@@ -56,11 +56,17 @@ const CreateBookForm = (props) => {
         data.append('name', formData.name)
         data.append('author', formData.author)
         data.append('publisher', formData.publisher)
-        data.append('category', formData.category)
+        if(formData.category === '') {
+            data.append('category', categories[0].id)
+        } else  {
+            data.append('category', formData.category)
+        }
         data.append('price', formData.price)
         data.append('amount', formData.amount)
         data.append('languages', formData.languages)
         data.append('length', formData.length)
+
+
         for (let i = 0; i < formData.images.length; i++) {
             data.append('images', formData.images[i]);
         }
@@ -75,7 +81,6 @@ const CreateBookForm = (props) => {
                 setAlert(true)
                 setIsLoading(false)
                 window.scrollTo(0, 0);
-                console.log(response.data)
                 addBook(response.data)
                 setFormData({
                     name: "",
