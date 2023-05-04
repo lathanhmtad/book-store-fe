@@ -24,14 +24,12 @@ const ProductListing = () => {
 
 
     return (
-        <div className='product-listing-container'>
-            <div className='container'>
-                <h2>Here are some <span className='text-primary'>books</span> that you might like</h2>
-                <div className='listing-container'>
-                    {results.map(book => book && <div key={book.id} className='grid-item'>
-                        <ProductListingCard book={book} />
-                    </div>)}
-                </div>
+        <div className='product-listing-container grid wide'>
+            <h2>Here are some <span className='text-primary'>books</span> that you might like</h2>
+            <div className='row'>
+                {results.map(book => book && <div key={book.id} className='col l-3 m-6 c-12'>
+                    <ProductListingCard book={book} />
+                </div>)}
             </div>
         </div>
     )

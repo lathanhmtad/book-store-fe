@@ -9,7 +9,7 @@ const Popup = ({setPopup}) => {
     }
 
     return (
-        <div id="xmas-popup" class={`popup show`} href="#">
+        <div oncClick={handleClose} id="xmas-popup" class={`popup show`} href="#">
             <div class="popup-content">
                 <a onClick={handleClose} class="popup-close">x</a>
                 <AiOutlineCheck className='popup-check'/>

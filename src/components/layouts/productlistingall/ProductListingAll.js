@@ -14,13 +14,11 @@ const ProductListingAll = () => {
     const { books } = useContext(BookContext)
 
     return (
-        <section className='product-listing-all-container'>
-            <div className='container'>
-                <div className='grid-container'>
-                    {books.map(book => <div key={book.id} className='grid-item'>
-                        <ProductListingCard book={book} />
-                    </div>)}
-                </div>
+        <section className='product-listing-all-container grid wide'>
+            <div className='row'>
+                {books.map(book => <div key={book.id} className='col l-3 m-6 c-12'>
+                    <ProductListingCard book={book} />
+                </div>)}
             </div>
         </section>
     )

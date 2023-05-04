@@ -21,7 +21,6 @@ const BookProvider = ({ children }) => {
         BooksServices.getAll()
             .then(response => {
                 const books = response.data
-
                 setBooks(books)
             })
             .catch(err => {
@@ -29,7 +28,7 @@ const BookProvider = ({ children }) => {
             })
         }, []);
         
-       
+       console.log(books)
 
     return <BookContext.Provider value={{ books, addBook }}>
         {children}

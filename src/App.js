@@ -16,18 +16,16 @@ import ScrollToTop from './components/util/ScrollToTop'
 function App() {
   return (
     <ScrollToTop>
-      <div className="overflow-hidden">
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/books' element={<BooksPage />} />
-          <Route path='/book-details/:id' element={<BookDetailsPage />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/email-verification' element={<EmailVerification />} />
-          <Route path='/cart' element={<CartPage />} />
-          <Route path='/create-book' element={<CreateBookPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/books' element={<BooksPage />} />
+        <Route path='/book-details/:id' element={<BookDetailsPage />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/email-verification' element={<EmailVerification />} />
+        <Route path='/cart' element={<CartPage />} />
+        <Route path='/create-book' element={<CreateBookPage />} />
+      </Routes>
     </ScrollToTop>
   )
 }

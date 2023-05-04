@@ -46,6 +46,7 @@ const DetailsSection = () => {
 
     const { description, price, languages, name, author, images, length, publisher } = book
 
+    console.log(book)
 
     function plusSlides(n) {
         setSlideIndex(prev => prev + n)
@@ -81,8 +82,6 @@ const DetailsSection = () => {
             slideRef.current.scrollLeft -= width
         }
     }
-
-
 
     return (
         <section className='detail-section-container'>
