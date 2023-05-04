@@ -9,12 +9,12 @@ import FullPageLoading from '../../loading/fullpageloading/FullPageLoading';
 import Alert from '../../alert/Alert';
 import CategoryService from '../../../services/CategoryService';
 
-import {BookContext} from '../../../contexts/BookContext'
+import { BookContext } from '../../../contexts/BookContext'
 
 const CreateBookForm = (props) => {
     const [categories, setCategories] = useState([])
 
-    const {addBook} = useContext(BookContext)
+    const { addBook } = useContext(BookContext)
 
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const CreateBookForm = (props) => {
 
             })
     }, []);
-    
+
     const [isLoading, setIsLoading] = useState(false)
     const [apiStatus, setApiStatus] = useState({
         status: '',
@@ -37,6 +37,8 @@ const CreateBookForm = (props) => {
     const [formData, setFormData] = useState({
         name: "",
         author: "",
+        publisher: "",
+        amount: "",
         category: "",
         price: '',
         languages: "",
@@ -53,9 +55,10 @@ const CreateBookForm = (props) => {
         const data = new FormData()
         data.append('name', formData.name)
         data.append('author', formData.author)
-        data.append('publisher', formData.author)
+        data.append('publisher', formData.publisher)
         data.append('category', formData.category)
         data.append('price', formData.price)
+        data.append('amount', formData.amount)
         data.append('languages', formData.languages)
         data.append('length', formData.length)
         for (let i = 0; i < formData.images.length; i++) {
@@ -77,7 +80,9 @@ const CreateBookForm = (props) => {
                 setFormData({
                     name: "",
                     author: "",
-                    category: "Volvo",
+                    publisher: "",
+                    amount: "",
+                    category: "",
                     price: '',
                     languages: "",
                     length: '',
