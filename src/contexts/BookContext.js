@@ -7,9 +7,6 @@ import BooksServices from "../services/BooksServices";
 export const BookContext = createContext()
 
 const BookProvider = ({ children }) => {
-
-
-
     const [filters, setFilters] = useState({
         page: 1,
         size: 5,

@@ -31,12 +31,13 @@ const ProductListingAll = () => {
     }
 
     // fetch books
-    useEffect(() => {
-        BooksServices.getPage(filters.page, filters.size)
+    useEffect(() => { // filters.page, filters.size
+        BooksServices.getAll()
             .then(response => {
-                const books = response.data.data
-                const pagination = response.data.pagination
-                
+                // const books = response.data.data
+                // const pagination = response.data.pagination
+                const books = response.data
+
                 setBooks(books)
                 setPagination(pagination)
             })
@@ -52,11 +53,11 @@ const ProductListingAll = () => {
                     <ProductListingCard book={book} />
                 </div>)}
 
-                <Pagination 
-                    pagination={pagination}
-                    onPageChange={handlePageChange}
-                />
             </div>
+            <Pagination
+                pagination={pagination}
+                onPageChange={handlePageChange}
+            />
         </section>
     )
 }

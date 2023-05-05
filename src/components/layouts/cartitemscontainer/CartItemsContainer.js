@@ -8,7 +8,7 @@ import { CartContext } from "../../../contexts/CartContext.js";
 
 const CartItemsContainer = () => {
 
-    const {cart} = useContext(CartContext)
+    const {cart, total} = useContext(CartContext)
 
 
     return (
@@ -19,7 +19,7 @@ const CartItemsContainer = () => {
                     {cart.map(item => (
                         <CartItemCard key={item.id} book={item}/>
                     ))}
-                    <h2>Total Amount = &#8377;5000</h2>
+                    <h2>Total Amount =  {total.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</h2>
                     <button className="button-primary">Proceed to Checkout</button>
                 </React.Fragment>
             </div>

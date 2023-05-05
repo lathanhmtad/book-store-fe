@@ -1,16 +1,23 @@
 import './detailssection.style.css'
 
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useContext, useState, useEffect, useRef } from 'react'
 
 import { BookContext } from '../../../contexts/BookContext'
 
+import { CartContext } from '../../../contexts/CartContext'
+import Popup from '../../popup/Popup'
+
 const DetailsSection = () => {
+    const navigate = useNavigate
     const [slideIndex, setSlideIndex] = useState(1)
 
     const [width, setWidth] = useState(0)
     const [start, setStart] = useState(0)
     const [change, setChange] = useState(9)
+    const [popup, setPopup] = useState(false)
+
+    const { addToCart } = useContext(CartContext)
 
     const slideRef = useRef()
 
@@ -81,8 +88,22 @@ const DetailsSection = () => {
         }
     }
 
+    const handleAddToCart = () => {
+        // check if login information is stored in localStorage
+        const customerInfo = localStorage.getItem('customer');
+        if (customerInfo) {
+            addToCart(book, id)
+            setPopup(true)
+        }
+        else 
+        {
+            navigate('/login')
+        }
+    }
+
     return (
-        <section className='detail-section-container '>
+        <section className='detail-section-container'>
+            {popup && <Popup setPopup={setPopup} />}
             <div className='grid wide'>
                 <div className='book-detail-wrapper-container row'>
                     <div className='col l-6 m-12 c-12 book-img-container'>
@@ -120,9 +141,9 @@ const DetailsSection = () => {
                         <p><b>Publisher:</b> Kim đồng</p>
                         <p><b>Language:</b> {languages}</p>
                         <p><b>Book Length: </b>{length} pages</p>
-                        <h3>{price} VNĐ</h3>
+                        <h3>{price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
 
-                        <a href='#' className='button-primary'>Add to Cart</a>
+                        <button onClick={handleAddToCart} className='button-primary'>Add to Cart</button>
                     </div>
                 </div>
             </div>

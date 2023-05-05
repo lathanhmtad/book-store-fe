@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './popup.style.css'
 import {AiOutlineCheck} from 'react-icons/ai'
 
@@ -9,9 +8,9 @@ const Popup = ({setPopup}) => {
     }
 
     return (
-        <div oncClick={handleClose} id="xmas-popup" class={`popup show`} href="#">
-            <div class="popup-content">
-                <a onClick={handleClose} class="popup-close">x</a>
+        <div onClick={handleClose} id="xmas-popup" className={`popup show`} href="#">
+            <div className="popup-content">
+                <a onClick={handleClose} className="popup-close">x</a>
                 <AiOutlineCheck className='popup-check'/>
                 <p className='popup-message'>Sản phẩm đã được thêm vào giỏ hàng</p>
             </div>
