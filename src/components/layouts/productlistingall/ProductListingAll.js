@@ -32,11 +32,11 @@ const ProductListingAll = () => {
 
     // fetch books
     useEffect(() => { // filters.page, filters.size
-        BooksServices.getAll()
+        BooksServices.getPage(filters.page, filters.size)
             .then(response => {
-                // const books = response.data.data
-                // const pagination = response.data.pagination
-                const books = response.data
+                const books = response.data.data
+                const pagination = response.data.pagination
+                // const books = response.data
 
                 setBooks(books)
                 setPagination(pagination)
