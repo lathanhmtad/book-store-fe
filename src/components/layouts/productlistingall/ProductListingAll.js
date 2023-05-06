@@ -50,8 +50,8 @@ const ProductListingAll = () => {
     }, [filters])
 
     return (
-        <section className='product-listing-all-container grid wide'>
-            <div className='row'>
+        <section className='grid wide'>
+            <div className='product-listing-container row'>
                 {books.map(book => <div key={book.id} className='col l-3 m-6 c-12'>
                     <ProductListingCard book={book} />
                 </div>)}

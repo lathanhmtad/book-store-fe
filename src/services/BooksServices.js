@@ -21,6 +21,14 @@ class BooksServices {
             }
         })
     }
+
+    search(data) {
+        return axios.get(API_BASE_URL + '/search', {
+            params: {
+                data
+            }
+        })
+    }
 }
 
 export default new BooksServices()

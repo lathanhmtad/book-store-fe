@@ -10,13 +10,13 @@ import AuthenticationService from '../../services/AuthenticationService'
 import Alert from '../../components/alert/Alert'
 
 import FullPageLoading from '../../components/loading/fullpageloading/FullPageLoading'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { CartContext } from '../../contexts/CartContext'
 
 const Login = () => {
 
-    const {getCartFromDatabase} = useContext(CartContext)
+    const { getCartFromDatabase } = useContext(CartContext)
 
     const [isLoading, setIsLoading] = useState(false)
     const [apiStatus, setApiStatus] = useState({
@@ -124,7 +124,12 @@ const Login = () => {
                             </div>
                         </form>
                     </div>
+                    <div>
+                        <span>Bạn chưa có tài khoản?</span>
+                        <Link to='/register'>Đăng ký</Link>
+                    </div>
                 </div>
+                {/* <NavLink to='/register' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Register</NavLink> */}
             </div>
         </React.Fragment>
     )

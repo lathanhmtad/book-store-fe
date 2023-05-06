@@ -10,12 +10,17 @@ import './bookpage.style.css'
 
 
 const BooksPage = () => {
+    function handleFiltersChange(newFilters) {
+        console.log(newFilters)
+    }
+
+
     return (
         <section>
             <Navbar darkTheme={true}/>
             <div className='search-container'>
                 <h2>Find the <span className='text-primary'>Books</span> that you want</h2>
-                <SearchInputForm darkTheme={false} />
+                <SearchInputForm onSubmit={handleFiltersChange} darkTheme={false} />
             </div>
 
             <ProductListingAll />
