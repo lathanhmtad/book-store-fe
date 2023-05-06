@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 
 const Pagination = ({ onPageChange, pagination }) => {
 
-    const { page, size, bookAmount } = pagination
+    const {size, bookAmount } = pagination
     const totalPages = Math.ceil(parseInt(bookAmount) / parseInt(size));
 
 

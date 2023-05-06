@@ -6,8 +6,6 @@ const SearchInputForm = ({darkTheme, onSubmit}) => {
     const [searchTerm, setSearchTerm] = useState('')
     const typingTimeoutRef = useRef(null)
 
-
-
     const handleSearchTermChange = (e) => {
         const value = e.target.value
         setSearchTerm(value)
@@ -20,7 +18,7 @@ const SearchInputForm = ({darkTheme, onSubmit}) => {
 
         typingTimeoutRef.current = setTimeout(() => {
             const formValues = {
-                searchTerm: e.target.value,
+                searchTerm: value,
             }
     
             onSubmit(formValues)

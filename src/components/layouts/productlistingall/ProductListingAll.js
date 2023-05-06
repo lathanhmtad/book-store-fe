@@ -18,36 +18,14 @@ import BooksServices from '../../../services/BooksServices';
 
 const ProductListingAll = () => {
 
-    const { books, setBooks, filters, setFilters } = useContext(BookContext)
-
-    const [pagination, setPagination] = useState({
-        page: 1,
-        size: 5,
-        bookAmount: 1
-    })
+    const { books, filters, setFilters } = useContext(BookContext)
 
     const handlePageChange = (newPage) => {
-        console.log(newPage)
         setFilters({
             ...filters,
             page: newPage
         })
     }
-
-    // fetch books
-    useEffect(() => { // filters.page, filters.size
-        BooksServices.getPage(filters.page, filters.size)
-            .then(response => {
-                const books = response.data.data
-                const pagination = response.data.pagination
-                // const books = response.data
-                setBooks(books)
-                setPagination(pagination)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [filters])
 
     return (
         <section className='grid wide'>
@@ -58,7 +36,7 @@ const ProductListingAll = () => {
 
             </div>
             <Pagination
-                pagination={pagination}
+                pagination={filters}
                 onPageChange={handlePageChange}
             />
 
