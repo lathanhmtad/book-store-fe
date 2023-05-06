@@ -41,6 +41,7 @@ const Navbar = ({ darkTheme, darkText }) => {
         <nav className='nav-links-container flex'>
             <NavLink to='/' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Home</NavLink>
             <NavLink to='/books' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Books</NavLink>
+            <NavLink to='/create-book' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Create book</NavLink>
             <Link to={'/'} onClick={handleLogout} className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Logout</Link>
             <CartIcon darkText={darkText} />
         </nav>
@@ -50,7 +51,6 @@ const Navbar = ({ darkTheme, darkText }) => {
         <nav className='nav-links-container flex'>
             <NavLink to='/' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Home</NavLink>
             <NavLink to='/books' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Books</NavLink>
-            <NavLink to='/create-book' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Create book</NavLink>
             <NavLink to='/login' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Login</NavLink>
             <NavLink to='/register' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Register</NavLink>
         </nav>

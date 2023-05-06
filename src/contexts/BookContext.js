@@ -9,7 +9,7 @@ export const BookContext = createContext()
 const BookProvider = ({ children }) => {
     const [filters, setFilters] = useState({
         page: 1,
-        size: 5,
+        size: 8,
         totalRows: 1
     })
 
@@ -18,9 +18,6 @@ const BookProvider = ({ children }) => {
     const addBook = (newBook) => {
         setBooks([...books, newBook])
     }
-
-
-    
 
     return <BookContext.Provider value={{ books, setBooks, addBook, filters, setFilters }}>
         {children}

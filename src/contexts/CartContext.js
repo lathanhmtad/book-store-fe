@@ -63,12 +63,7 @@ const CartProvider = ({ children }) => {
             })
             values.append('amount', cartItem.amount + 1)
 
-             // Display the key/value pairs
-             for (const pair of values.entries()) {
-                console.log(`${pair[0]}, ${pair[1]}`);
-            }
-
-            CartService.addToCart(values)
+            CartService.updateQuantityForCart(values)
                 .then(response => {
                     console.log(response)
                 })
@@ -79,8 +74,7 @@ const CartProvider = ({ children }) => {
             setCart(newCart)
         }
         else {
-            values.append('amount', newItem.amount)
-            
+            values.append('amount', 1)
             CartService.addToCart(values)
                 .then(response => {
                     console.log(response)
@@ -95,12 +89,39 @@ const CartProvider = ({ children }) => {
 
     // remove from cart
     const removeFromCart = (id) => {
+        const values = new FormData()
+        const customer = localStorage.getItem('customer')
+        values.append('bookId', id)
+        values.append('customerId', JSON.parse(customer).id)
+        
+        CartService.removeFromCart(values)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
         const newCart = cart.filter(item => {
             return item.id != id
         })
         setCart(newCart)
     }
 
+
+    // get cart from database when user login
+    const getCartFromDatabase = (customerId) => {
+        const values = new FormData()
+        values.append('id', customerId)
+        CartService.getCartFromDatabase(values)
+            .then(response => {
+                console.log(response.data)
+                setCart(response.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     // increase amount 
     const increaseAmount = (id) => {
@@ -109,7 +130,14 @@ const CartProvider = ({ children }) => {
     }
 
     // decrease amount
-    const decreaseAmount = (id) => {
+    const decreaseAmount = (book, id) => {
+        const values = new FormData()
+        values.append('bookId', book.id)
+        values.append('author', book.author)
+        values.append('price', book.price)
+        values.append('name', book.name)
+        const customer = localStorage.getItem('customer')
+        values.append('customerId', JSON.parse(customer).id)
         const cartItem = cart.find(item => {
             return item.id === id
         })
@@ -122,6 +150,16 @@ const CartProvider = ({ children }) => {
                     return item
                 }
             })
+            values.append('amount', cartItem.amount - 1)
+            CartService.updateQuantityForCart(values)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+            setCart(newCart)
             setCart(newCart)
         }
         if (cartItem.amount < 2) {
@@ -130,7 +168,7 @@ const CartProvider = ({ children }) => {
     }
 
 
-    return <CartContext.Provider value={{ cart, addToCart, itemAmount, removeFromCart, decreaseAmount, increaseAmount, total }}>
+    return <CartContext.Provider value={{ cart, addToCart, itemAmount, removeFromCart, decreaseAmount, increaseAmount, total, getCartFromDatabase }}>
         {children}
     </CartContext.Provider>
 }

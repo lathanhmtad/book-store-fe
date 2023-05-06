@@ -13,6 +13,9 @@ import { BookContext } from '../../../contexts/BookContext'
 import BooksServices from '../../../services/BooksServices';
 
 
+
+
+
 const ProductListingAll = () => {
 
     const { books, setBooks, filters, setFilters } = useContext(BookContext)
@@ -20,10 +23,11 @@ const ProductListingAll = () => {
     const [pagination, setPagination] = useState({
         page: 1,
         size: 5,
-        totalRows: 1
+        bookAmount: 1
     })
 
     const handlePageChange = (newPage) => {
+        console.log(newPage)
         setFilters({
             ...filters,
             page: newPage
@@ -37,7 +41,6 @@ const ProductListingAll = () => {
                 const books = response.data.data
                 const pagination = response.data.pagination
                 // const books = response.data
-
                 setBooks(books)
                 setPagination(pagination)
             })
@@ -58,6 +61,8 @@ const ProductListingAll = () => {
                 pagination={pagination}
                 onPageChange={handlePageChange}
             />
+
+            
         </section>
     )
 }

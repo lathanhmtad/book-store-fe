@@ -1,7 +1,6 @@
 import axios from "axios"
 
-const API_BASE_URL = 'http://localhost:8080/book-store-be/api/v1'
-// const API_BASE_URL = 'http://192.168.1.98:8080/book-store-be/api/v1'
+import API_BASE_URL from './BaseURL'
 
 axios.defaults.withCredentials = true;
 
@@ -11,10 +10,16 @@ class CartService {
     }
 
     removeFromCart(data) {
-        return axios.delete(API_BASE_URL + '/cart', data)
+        return axios.post(API_BASE_URL + '/cart-delete', data)
     }
 
-    // updateQuatityForCart()
+    updateQuantityForCart(data) {
+        return axios.post(API_BASE_URL + '/cart-update', data)
+    }
+
+    getCartFromDatabase(data) {
+        return axios.post(API_BASE_URL + '/cart-get', data)
+    }
     
 }
 

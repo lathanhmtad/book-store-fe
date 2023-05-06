@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import AuthBgImg from '../../img/auth-bg.jpg'
 
@@ -12,7 +12,12 @@ import Alert from '../../components/alert/Alert'
 import FullPageLoading from '../../components/loading/fullpageloading/FullPageLoading'
 import { useNavigate } from 'react-router-dom'
 
+import { CartContext } from '../../contexts/CartContext'
+
 const Login = () => {
+
+    const {getCartFromDatabase} = useContext(CartContext)
+
     const [isLoading, setIsLoading] = useState(false)
     const [apiStatus, setApiStatus] = useState({
         status: '',
@@ -39,6 +44,7 @@ const Login = () => {
         AuthenticationService.login(formData)
             .then(response => {
                 localStorage.setItem('customer', JSON.stringify(response.data))
+                getCartFromDatabase(response.data.id)
                 setIsLoading(false)
                 navigate('/')
             })

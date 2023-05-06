@@ -9,7 +9,7 @@ import { CartContext } from '../../../contexts/CartContext'
 import Popup from '../../popup/Popup'
 
 const DetailsSection = () => {
-    const navigate = useNavigate
+    const navigate = useNavigate()
     const [slideIndex, setSlideIndex] = useState(1)
 
     const [width, setWidth] = useState(0)

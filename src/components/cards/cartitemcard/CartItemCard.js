@@ -36,7 +36,7 @@ const CartItemCard = ({ book }) => {
                 <div className='quantity'>
                     <div>Số lượng</div>
                     <div className='flex align-center justify-center'>
-                        <IoMdRemove onClick={() => decreaseAmount(book.id)} className='cart-btn-decrease'/>
+                        <IoMdRemove onClick={() => decreaseAmount(book,book.id)} className='cart-btn-decrease'/>
                         {book.amount}
                         <IoMdAdd onClick={() => increaseAmount(book.id)} className='cart-btn-increase'/>
                     </div>
