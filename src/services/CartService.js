@@ -18,7 +18,11 @@ class CartService {
     }
 
     getCartFromDatabase(data) {
-        return axios.post(API_BASE_URL + '/cart-get', data)
+        return axios.get(API_BASE_URL + '/cart-get', {
+            params: {
+                id: data
+            }
+        })
     }
     
 }

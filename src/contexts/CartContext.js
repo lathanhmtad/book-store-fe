@@ -41,6 +41,7 @@ const CartProvider = ({ children }) => {
         values.append('author', book.author)
         values.append('price', book.price)
         values.append('name', book.name)
+        values.append('categoryId', book.category.id)
         const customer = localStorage.getItem('customer')
         values.append('customerId', JSON.parse(customer).id)
 
@@ -108,12 +109,8 @@ const CartProvider = ({ children }) => {
         setCart(newCart)
     }
 
-
-    // get cart from database when user login
     const getCartFromDatabase = (customerId) => {
-        const values = new FormData()
-        values.append('id', customerId)
-        CartService.getCartFromDatabase(values)
+        CartService.getCartFromDatabase(customerId)
             .then(response => {
                 console.log(response.data)
                 setCart(response.data)
@@ -122,6 +119,14 @@ const CartProvider = ({ children }) => {
                 console.log(err)
             })
     }
+
+    useEffect(() => {
+        const customer = JSON.parse(localStorage.getItem('customer'))
+        if(customer) {
+            // get cart from database when user login
+            getCartFromDatabase(customer.id)
+        }
+    }, [])
 
     // increase amount 
     const increaseAmount = (id) => {

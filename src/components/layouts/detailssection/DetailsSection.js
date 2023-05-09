@@ -51,7 +51,7 @@ const DetailsSection = () => {
         return <section className='details-section-error'>Không tìm thấy sản phẩm</section>
     }
 
-    const { description, price, languages, name, author, images, length, publisher } = book
+    const { description, price, language, name, author, images, length, publisher, category, amount } = book
 
     function plusSlides(n) {
         setSlideIndex(prev => prev + n)
@@ -137,9 +137,10 @@ const DetailsSection = () => {
                         <p className='book-description'>
                             {description}
                         </p>
-                        <p><b>Category:</b> Sách võ</p>
-                        <p><b>Publisher:</b> Kim đồng</p>
-                        <p><b>Language:</b> {languages}</p>
+                        <p><b>Tình trạng:</b> {amount > 0 ? 'Còn hàng' : 'Hết hàng'}</p>
+                        <p><b>Category:</b> {category.name}</p>
+                        <p><b>Publisher:</b> {publisher}</p>
+                        <p><b>Language:</b> {language}</p>
                         <p><b>Book Length: </b>{length} pages</p>
                         <h3>{price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</h3>
 

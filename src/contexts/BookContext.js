@@ -26,7 +26,6 @@ const BookProvider = ({ children }) => {
                 const books = response.data.data
                 setBooks(books)
                 setFilters(response.data.pagination)
-            console.log(books)
             })
             .catch(err => {
                 console.log(err)

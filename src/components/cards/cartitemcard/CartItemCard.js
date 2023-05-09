@@ -8,6 +8,7 @@ import {IoMdRemove, IoMdAdd } from 'react-icons/io'
 
 
 const CartItemCard = ({ book }) => {
+    console.log(book)
     const { removeFromCart, decreaseAmount, increaseAmount } = useContext(CartContext)
 
     return (
@@ -18,18 +19,18 @@ const CartItemCard = ({ book }) => {
             </div>
             <div className="cart-item-content-container">
                 <div>
-                    <h2>{book.name}</h2>
+                    <h2>{book.bookName}</h2>
                     <h6>{book.author}</h6>
                 </div>
 
                 <div>
                     <p className='text-primary'>Loại sách</p>
-                    <p>Sách võ</p>
+                    <p>{book.category.name}</p>
                 </div>
 
                 <div>
                     <div>
-                        <div className='text-primary'>Gía sách</div>
+                        <div className='text-primary'>Giá sách</div>
                         <div>{(book.price).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</div>
                     </div>
                 </div>
