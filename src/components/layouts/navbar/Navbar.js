@@ -52,7 +52,6 @@ const Navbar = ({ darkTheme, darkText }) => {
             <NavLink to='/' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Home</NavLink>
             <NavLink to='/books' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Books</NavLink>
             <NavLink to='/login' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Login</NavLink>
-            <NavLink to='/register' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Register</NavLink>
         </nav>
     )
 

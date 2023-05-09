@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './searchinputform.style.css'
 import { useRef } from 'react'
 
-const SearchInputForm = ({darkTheme, onSubmit}) => {
+const SearchInputForm = ({darkTheme, onSubmit, onClick}) => {
     const [searchTerm, setSearchTerm] = useState('')
     const typingTimeoutRef = useRef(null)
 
@@ -27,10 +27,16 @@ const SearchInputForm = ({darkTheme, onSubmit}) => {
         
     }
 
+    const handleClick = () => {
+        if(!onClick) return
+
+        onClick(searchTerm)
+    }
+
     return (
         <div className={`search-input-form-container ${darkTheme ? 'dark-box-shadow' : 'light-box-shadow'}`}>
             <input onChange={handleSearchTermChange} type="text" className="search-input" placeholder='Search Books'/>
-            <button className="search-button">Search</button>
+            <button onClick={handleClick} className="search-button">Search</button>
         </div>
     )
 }

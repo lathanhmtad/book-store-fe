@@ -15,22 +15,23 @@ const BookProvider = ({ children }) => {
         page: 1,
         size: 8,
         bookAmount: 0,
-        titleLike: ''
     })
+
+    
 
     // fetch books
     useEffect(() => {
         BooksServices.getPage(filters.page, filters.size)
             .then(response => {
                 const books = response.data.data
-                // const pagination = response.data.pagination
                 setBooks(books)
+                setFilters(response.data.pagination)
+            console.log(books)
             })
             .catch(err => {
                 console.log(err)
             })
-    }, [filters])
-
+    }, [filters.page])
    
     const addBook = (newBook) => {
         setBooks([...books, newBook])

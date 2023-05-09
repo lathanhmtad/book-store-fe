@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 
 import './register.style.css'
 import AuthBgImg from '../../img/auth-bg.jpg'
@@ -7,7 +8,6 @@ import Navbar from '../../components/layouts/navbar/Navbar'
 import FormInput from '../../components/forms/forminput/FormInput'
 
 import AuthenticationService from '../../services/AuthenticationService'
-import { useNavigate } from 'react-router-dom'
 import FullPageLoading from '../../components/loading/fullpageloading/FullPageLoading'
 import Alert from '../../components/alert/Alert'
 
@@ -116,11 +116,11 @@ const Register = () => {
             {isLoading && <FullPageLoading />}
 
             <Navbar darkText={true} />
-            <div className='signup-container'>
-                <div className='signup-img-container'>
+            <div className='row signup-container'>
+                <div className='signup-img-container col l-6 m-6 c-0'>
                     <img src={AuthBgImg} alt='background' />
                 </div>
-                <div className='signup-content-container'>
+                <div className='signup-content-container col l-6 m-6 c-12'>
                     <div className='container'>
                         <div className='content-wrapper'>
                             <h2>Register</h2>
@@ -140,6 +140,10 @@ const Register = () => {
                                 />
                             </div>
                         </form>
+                        <div>
+                        <span>Bạn đã có tài khoản?</span>
+                        <Link to='/login'>Đăng nhập </Link>
+                    </div>
                     </div>
                 </div>
             </div>

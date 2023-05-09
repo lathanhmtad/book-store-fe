@@ -22,10 +22,10 @@ class BooksServices {
         })
     }
 
-    search(data) {
+    search(searchContent) {
         return axios.get(API_BASE_URL + '/search', {
             params: {
-                data
+                searchContent
             }
         })
     }

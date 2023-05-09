@@ -7,13 +7,12 @@ const Pagination = ({ onPageChange, pagination }) => {
     const {size, bookAmount } = pagination
     const totalPages = Math.ceil(parseInt(bookAmount) / parseInt(size));
 
-
+    
     function handlePageChange(newPage) {
         onPageChange(newPage + 1)
     }
 
     return (
-
         <ReactPaginate
                 previousLabel={"<"}
                 nextLabel={">"}
@@ -26,22 +25,6 @@ const Pagination = ({ onPageChange, pagination }) => {
                 containerClassName={"pagination"}
                 subContainerClassName={"pages pagination"}
                 activeClassName={"active"} />
-
-        // <div className="pagination-container">
-        //     <button
-        //         disabled={page <= 1}
-        //         onClick={() => handlePageChange(page - 1)}
-        //     >
-        //         Prev
-        //     </button>
-
-        //     <button
-        //         disabled={page >= totalPages}
-        //         onClick={() => handlePageChange(page + 1)}
-        //     >
-        //         Next
-        //     </button>
-        // </div>
     );
 };
 

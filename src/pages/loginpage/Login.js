@@ -129,7 +129,7 @@ const Login = () => {
                         <Link to='/register'>Đăng ký</Link>
                     </div>
                 </div>
-                {/* <NavLink to='/register' activeclassname="active" className={`${darkText ? 'nav-link-dark' : 'nav-link'}`}>Register</NavLink> */}
+               
             </div>
         </React.Fragment>
     )
