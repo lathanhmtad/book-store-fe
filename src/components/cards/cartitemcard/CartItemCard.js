@@ -19,7 +19,7 @@ const CartItemCard = ({ book }) => {
             </div>
             <div className="cart-item-content-container">
                 <div>
-                    <h2>{book.bookName}</h2>
+                    <h2>{book.bookName || book.name}</h2>
                     <h6>{book.author}</h6>
                 </div>
 
